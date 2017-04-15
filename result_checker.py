@@ -2,6 +2,8 @@ import re
 import unittest
 
 
+# python3 -m unittest -v result_checker.py
+
 class Student(object):
     def __init__(self, name):
         self.name = name

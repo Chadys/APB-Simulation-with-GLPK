@@ -34,7 +34,7 @@ s.t. in_student_list{i in ETU, j in ETA}: eta_per_etu[i,j] * rank_eta[i,j] >= 0;
 /* max satisfaction for students */
 minimize etu_choice: (sum{i in ETA, j in ETU} rank_eta[j,i]*etu_per_eta[i,j]);
 /* max satisfaction for establishments */
-minimize eta_choice: (sum{i in ETA, j in ETU} rank_etu[j]*etu_per_eta[i,j]);
+minimize eta_choice{i in ETA}: (sum{j in ETU} rank_etu[j]*etu_per_eta[i,j]);
 
 
 # Resolution
