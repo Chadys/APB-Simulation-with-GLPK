@@ -2,7 +2,7 @@ import random
 import factory
 
 
-class Etudiant(object):
+class Student(object):
     def __init__(self, name):
         self.name = name
 
@@ -53,7 +53,7 @@ class Establishment(object):
 
 class RandomStudentFactory(factory.Factory):
     class Meta:
-        model = Etudiant
+        model = Student
 
     name = factory.Faker('name', 'fr_FR')
 
