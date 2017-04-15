@@ -122,6 +122,13 @@ class TestAPBSimulatorResult(unittest.TestCase):
         for e in self.etas:
             self.assertLessEqual(len(e.students), e.capacity)
 
+    def test_no_less_ranked_stu(self):
+        for s in self.students:
+            if s.eta_ranking[s.establishment] > 1:
+                for s2 in s.establishment.students:
+                    if s.eta_ranking[s.establishment] <= s2.eta_ranking[s2.establishment]:
+                        self.assertLess(s2.rank, s.rank)
+
 
 if __name__ == '__main__':
     unittest.main()
