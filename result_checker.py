@@ -110,9 +110,17 @@ class TestAPBSimulatorResult(unittest.TestCase):
         for s in self.students:
             self.assertIsNotNone(s.establishment)
 
-    def test__student_eta_in_eta_choices(self):
+    def test_student_eta_in_eta_choices(self):
         for s in self.students:
             self.assertIn(s.establishment, s.eta_ranking.keys())
+
+    def test_no_less_good_student_in_eta(self):
+        for s in self.students:
+            self.assertIn(s.establishment, s.eta_ranking.keys())
+
+    def test_no_excess_eta_capacity(self):
+        for e in self.etas:
+            self.assertLessEqual(len(e.students), e.capacity)
 
 
 if __name__ == '__main__':
